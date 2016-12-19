@@ -180,6 +180,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Addresses1Controller.cs" />
     <Compile Include="Controllers\AddressesController.cs" />
     <Compile Include="Controllers\BorrowersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -189,11 +190,13 @@
     <Compile Include="Migrations\201612151708233_changeColumns.Designer.cs">
       <DependentUpon>201612151708233_changeColumns.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAL\Model2.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Application.cs" />
     <Compile Include="Models\Appraisal.cs" />
     <Compile Include="Models\Borrower.cs" />
     <Compile Include="Models\emiliConstants.cs" />
+    <Compile Include="Models\GenericRepository.cs" />
     <Compile Include="Models\InternalMessage.cs" />
     <Compile Include="Models\Loan.cs" />
     <Compile Include="Models\Person.cs" />
@@ -208,6 +211,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Sales.cs" />
+    <Compile Include="Models\UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -276,6 +280,11 @@
     <Content Include="Views\Borrowers\Details.cshtml" />
     <Content Include="Views\Borrowers\Edit.cshtml" />
     <Content Include="Views\Borrowers\Index.cshtml" />
+    <Content Include="Views\Addresses1\Create.cshtml" />
+    <Content Include="Views\Addresses1\Delete.cshtml" />
+    <Content Include="Views\Addresses1\Details.cshtml" />
+    <Content Include="Views\Addresses1\Edit.cshtml" />
+    <Content Include="Views\Addresses1\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

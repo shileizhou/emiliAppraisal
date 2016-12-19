@@ -1,4 +1,4 @@
-namespace emiliAppraisal.DAL
+namespace emiliAppraisal
 {
     using System;
     using System.Data.Entity;
@@ -6,21 +6,15 @@ namespace emiliAppraisal.DAL
     using System.Linq;
     using emiliAppraisal.Models;
 
-    public partial class emiliDB : DbContext
+    public partial class Model2 : DbContext
     {
-        public emiliDB()
+        public Model2()
             : base("name=emiliDB")
         {
-            //Database.Initialize(true);
-
             Configuration.LazyLoadingEnabled = true;
             Configuration.ProxyCreationEnabled = true;
 
-            Database.SetInitializer<emiliDB>(new DropCreateDatabaseIfModelChanges<emiliDB>());
-
-            //Database.SetInitializer<emiliDB>(new CreateDatabaseIfNotExists<emiliDB>());
-            //Database.SetInitializer<emiliDB>(new DropCreateDatabaseAlways<emiliDB>());
-            //Database.SetInitializer<emiliDB>(new SchoolDBInitializer());
+            Database.SetInitializer<Model2>(new DropCreateDatabaseIfModelChanges<Model2>());
 
         }
 
@@ -119,5 +113,6 @@ namespace emiliAppraisal.DAL
 
         public virtual System.Data.Entity.DbSet<emiliAppraisal.Models.Borrower> Borrowers { get; set; }
         public virtual System.Data.Entity.DbSet<emiliAppraisal.Models.Qualifying> Qualifyings { get; set; }
+
     }
 }
