@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using emiliAppraisal.DAL;
 using emiliAppraisal.Models;
+using System.Data.Entity.Core.Objects;
 
 namespace emiliAppraisal.Controllers
 {
@@ -23,21 +24,25 @@ namespace emiliAppraisal.Controllers
 
             //bb.ToList();
 
-            //var merchant = db.Borrowers
-            //              .Include("qualifying")
-            //              .Include("currentAddress")
-            //              .Take(2);
+            var merchant = db.Borrowers
+                          .Include("qualifying")
+                          .Include("currentAddress")
+                          .Take(2);
 
+            emiliEntities zz = new emiliEntities();
+            int jj = 0;
+            int qq =0;
+            int nextcmhcno = zz.GetNextCMHCNo(qq, jj);
 
             //var aa = merchant.currentAddress.postalCode;
 
-            foreach (Borrower b in bb )
-            {
-                //db.Entry(b).Reference(a => a.currentAddress).Load();
-                //db.Entry(b).Reference(a => a.qualifying).Load();
-                //Console.Write(b.currentAddress.municipality + b.qualifying.genericScore);
+            //foreach (Borrower b in bb )
+            //{
+            //    //db.Entry(b).Reference(a => a.currentAddress).Load();
+            //    //db.Entry(b).Reference(a => a.qualifying).Load();
+            //    //Console.Write(b.currentAddress.municipality + b.qualifying.genericScore);
 
-            }
+            //}
 
             return View(bb.ToList());
         }

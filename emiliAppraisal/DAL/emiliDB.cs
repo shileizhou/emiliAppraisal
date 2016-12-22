@@ -5,6 +5,8 @@ namespace emiliAppraisal.DAL
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
     using emiliAppraisal.Models;
+    using System.Data.Entity.Core.Objects;
+    using System.Data.Entity.Infrastructure;
 
     public partial class emiliDB : DbContext
     {
@@ -119,5 +121,6 @@ namespace emiliAppraisal.DAL
 
         public virtual System.Data.Entity.DbSet<emiliAppraisal.Models.Borrower> Borrowers { get; set; }
         public virtual System.Data.Entity.DbSet<emiliAppraisal.Models.Qualifying> Qualifyings { get; set; }
+
     }
 }

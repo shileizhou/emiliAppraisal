@@ -185,6 +185,21 @@
     <Compile Include="Controllers\BorrowersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="DAL\azureSP.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>azureSP.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\azureSP.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>azureSP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\azureSP.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>azureSP.edmx</DependentUpon>
+    </Compile>
     <Compile Include="DAL\emiliDB.cs" />
     <Compile Include="Migrations\201612151708233_changeColumns.cs" />
     <Compile Include="Migrations\201612151708233_changeColumns.Designer.cs">
@@ -213,17 +228,35 @@
     <Compile Include="Models\Sales.cs" />
     <Compile Include="Models\UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CreditBureau.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="DAL\azureSP.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>azureSP.edmx</DependentUpon>
+      <LastGenOutput>azureSP.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DAL\azureSP.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>azureSP.edmx</DependentUpon>
+      <LastGenOutput>azureSP.cs</LastGenOutput>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="DAL\azureSP.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>azureSP.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="DAL\azureSP.edmx.diagram">
+      <DependentUpon>azureSP.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
