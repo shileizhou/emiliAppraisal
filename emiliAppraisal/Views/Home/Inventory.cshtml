@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "emiliRU Inventory";
+}
+
+<style>
+    table, tr, td, th {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px;
+    }
+</style>
+<h2>Welcome to emiliRU Inventory</h2>
+<body ng-app="InventoryModule">
+    <div id="tblSubs" ng-controller="InventoryController">
+        <table>
+            <tr>
+                <th>CMHCNO</th>
+                <th>APIDSTMP</th>
+                <th>Referral Status</th>
+                <th>Borrower</th>
+            </tr>
+            <tbody data-ng-repeat="sub in subscriber">
+                <tr>
+                    <td>{{sub.CMHCNO}}</td>
+                    <td>{{sub.APIDSTMP}}</td>
+                    <td>{{sub.ReferralStatus}}</td>
+                    <td>{{sub.Borrower}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        @*<div>
+            <input type="text" ng-model="yourName" placeholder="Enter a name here">
+            <h1>Hello, {{ person }}!</h1>
+        </div>*@
+
+    </div>
+
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+@*<script src="~/Scripts/angular.js"></script>
+<script src="~/Scripts/angular-route.js"></script>*@
+<script src="~/Scripts/InventoryJS/Module.js"></script>
+<script src="~/Scripts/InventoryJS/Service.js"></script>
+<script src="~/Scripts/InventoryJS/Controller.js"></script>   
