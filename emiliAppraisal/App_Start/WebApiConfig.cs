@@ -15,10 +15,17 @@ namespace emiliAppraisal
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
+                name: "InventoryRoute",
+                routeTemplate: "inventory/{id}",
+                defaults: new { controller = "Referrals", action = "GetReferrals", 
+                                id = RouteParameter.Optional});
+
+            config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
         }
     }
 }

@@ -4,9 +4,9 @@ namespace emiliAppraisal.DAL
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
-    using emiliAppraisal.Models;
     using System.Data.Entity.Core.Objects;
     using System.Data.Entity.Infrastructure;
+    using emiliAppraisal.Models;
 
     public partial class emiliDB : DbContext
     {
@@ -18,6 +18,10 @@ namespace emiliAppraisal.DAL
             Configuration.LazyLoadingEnabled = true;
             Configuration.ProxyCreationEnabled = true;
 
+            this.Database.CommandTimeout = 3000;
+            
+
+
             Database.SetInitializer<emiliDB>(new DropCreateDatabaseIfModelChanges<emiliDB>());
 
             //Database.SetInitializer<emiliDB>(new CreateDatabaseIfNotExists<emiliDB>());
@@ -27,17 +31,23 @@ namespace emiliAppraisal.DAL
         }
 
 
-        public virtual DbSet<Person> Persons { get; set; }
-        public virtual DbSet<Referral> Referrals { get; set; }
-        public virtual DbSet<Application> Applications { get; set; }
-        public virtual DbSet<Sales> Sales { get; set; }
-        public virtual DbSet<Appraisal> Appraisals { get; set; }
+        public virtual DbSet<emiliAppraisal.Models.Person> Persons { get; set; }
+        public virtual DbSet<emiliAppraisal.Models.Referral> Referrals { get; set; }
+        public virtual DbSet<emiliAppraisal.Models.Application> Applications { get; set; }
+        public virtual DbSet<emiliAppraisal.Models.Sales> Sales { get; set; }
+        public virtual DbSet<emiliAppraisal.Models.Appraisal> Appraisals { get; set; }
 
         public System.Data.Entity.DbSet<emiliAppraisal.Models.Loan> Loans { get; set; }
 
+        public virtual System.Data.Entity.DbSet<emiliAppraisal.Models.Address> Addresses { get; set; }
+
+        public virtual System.Data.Entity.DbSet<emiliAppraisal.Models.Borrower> Borrowers { get; set; }
+        public virtual System.Data.Entity.DbSet<emiliAppraisal.Models.Qualifying> Qualifyings { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+
+
             #region referral table
             modelBuilder.Entity<Referral>()
                 .Property(e => e.APIDSTMP)
@@ -71,9 +81,9 @@ namespace emiliAppraisal.DAL
                 .Property(e => e.AppraisalStatus)
                 .IsFixedLength();
 
-            modelBuilder.Entity<Referral>().Ignore(t => t.SortingColumn);
+            modelBuilder.Entity<emiliAppraisal.Models.Referral>().Ignore(t => t.SortingColumn);
 
-            modelBuilder.Entity<Referral>()
+            modelBuilder.Entity<emiliAppraisal.Models.Referral>()
             .Property(t => t.RegionCode)
             .IsOptional()
             .HasColumnName("Region");
@@ -117,10 +127,6 @@ namespace emiliAppraisal.DAL
 
         }
 
-        public virtual System.Data.Entity.DbSet<emiliAppraisal.Models.Address> Addresses { get; set; }
-
-        public virtual System.Data.Entity.DbSet<emiliAppraisal.Models.Borrower> Borrowers { get; set; }
-        public virtual System.Data.Entity.DbSet<emiliAppraisal.Models.Qualifying> Qualifyings { get; set; }
 
     }
 }

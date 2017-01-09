@@ -11,6 +11,7 @@ namespace emiliAppraisal.Migrations
     {        public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            CommandTimeout = Int32.MaxValue;
         }
 
         protected override void Seed(emiliAppraisal.DAL.emiliDB context)

@@ -6,8 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Infrastructure;
 
-namespace emiliAppraisal.Models
+namespace emiliAppraisal.Services
 {
     public class GenericRepository<TEntity> where TEntity : class
     {
